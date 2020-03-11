@@ -117,4 +117,293 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>so I wanted to take the concept of
+making the machine like we did in the
+previous video a little bit further and
+I have our numbers again and I'm gonna
+say okay if our result gets tough dot
+where I I less than ten dot come on da
+where I let's do four less than all
+right yeah for less than I thought
+select I I times three dot where I I'm
+mod two equals zero so basically where
+it's even dot select I I plus J ami e
+you can do this I mean right way where
+is an extension method on enumerable so
+and we're also returns ienumerable so I
+can wear on an ienumerable and just
+further keep going and select takes an
+ienumerable it returns an ienumerable so
+then I can further wear on that and so
+on and so yes this example is completely
+contrived no you should never write code
+like this at work but I do think it it
+helps you understand a little bit more
+what the what's going on behind the
+scenes when you use link like this so
+remember each one of these um these
+iterator things these ienumerable things
+they return a new object so let's go
+back to paint here and see if we can
+kind of draw what's going on my first
+have stuff
+alright so stuff I can just bring yep
+bring stuff right there
+saving all the screen real estate I can
+stuff grab the pencil looks like stuff
+isn't array and it has four 13 8 1 9 ok
+and
+stuffs gonna send its data on to the the
+first we're here okay so so let's grab
+this and what is this where I do it
+sends it through a gauntlet I less than
+10 and I'm gonna say we're up top
+forgive my terrible writing and then if
+this we're sends its result on to this
+next we're okay so open that up and the
+gauntlet this Ware has is for less than
+I and I'll just write we're up here
+again okay
+but then this we're sends its data on to
+the Select here and the Select doesn't
+transform at times the value by three so
+let's go like that and say I times three
+and I'm gonna say select right here then
+this select sends its data on to yet
+another where this where right here will
+say where where I is even okay so I'm
+just gonna write even here because
+that's what mod 2 equals zero does for
+us and then that we're further sends it
+on to a another select which does a
+transform that word transform sounds
+very technical and scary it's not it's
+just gonna take each integer and append
+Jamie at the end so I plus J a am ie but
+in that sense Jamie okay who little it's
+a machine we've built all right this is
+quite the assembly line I mean I feel
+bad for these numbers over here they
+gotta walk this walk this gauntlet so
+just an all there's three gauntlets the
+where's and get transformed by the
+Select all wow what a pipeline but
+that's what we've set up
+okay so let's um let's write a for each
+year for each actually now let's do it
+you know actually before we even do that
+I said var here I just kind of copped
+out instead var but var really takes the
+return value or return type of this
+whole
+which is determined by the very last
+select here it looks like this select
+takes an int and transforms it to a
+string okay so we really have an
+ienumerable of strings I'm spell string
+right okay alright so now I'm gonna say
+ienumerator I could do this with a four
+th but the 4-h kind of hides the details
+so let's just do it how it is I know
+it'll of item Reiter of int Reiter gets
+its result dot get a numerator okay and
+then I'm gonna say wall later dot move
+next console.writeline later dot current
+okay well now what's it complaining
+about all I said int here when we're
+really numerating over strings okay good
+so I still have up here I still have
+from previous videos to wear in the
+Select so let's build this build succeed
+it k good f10 get the debugger going I'm
+gonna hit f11 and then notice I'm gonna
+hit f11 on this and again pause the
+video think about what the outputs gonna
+be I have these trace statements in here
+the Select and we're all right so f11
+alright what's the output it's nothing
+okay because we haven't called move next
+on anything quite yet alright so now I'm
+gonna say get numerator the output is
+still nothing alright now until we say
+move next I'm saying when I say move
+next you could pretend that you and me
+or out here in Maine right and we say
+move next alright and what we're saying
+is hey mister select object here give me
+some data well in order for the select
+object to give us any data it has to go
+hey where object give me some data well
+for the where object to give select any
+object it has to go to its object and
+say hey select over here give us some
+data and so on and so forth give me some
+data
+give me some data give me some data in
+there and then the array in the end says
+okay well here's a four alright so watch
+we're gonna trace through this with F 11
+okay just see how this goes
+f/11 first we go to the select alright
+first thing we did was select ok select
+comes in here and says ok I need some
+data from items which is gonna jump over
+to the where ok this where object right
+here where it says ok well I need some
+data so I'm gonna ask my items my source
+so what is where source where source was
+the result from the select ok so we jump
+back into select here this is a new
+instance of a new invocation of select
+it's not the previous one we left to
+come over to the where this is select
+again
+ok so select says well I better I need
+some data alright and it's gonna go back
+to where all right so we're comes over
+here and says well I need some data but
+this where has aware in front of it so
+we actually call that where we're
+getting kind of deep here I know but
+which has to call its its array all
+right finally finally we get a for
+alright for who
+wow what a chain alright we're gonna
+send 4 into the gauntlet of where well
+what is that first where's gauntlet that
+first where's gauntlet is I less than 10
+all right so so this array says ok well
+hey y'all send you four all right f11
+alright I less than 10 does we're
+sending it for less than 10 yes that's
+true so for survive this gauntlet right
+4 is less than 10 so the way it says
+okay here you go
+I'm gonna send you over here so then I
+over here becomes 4 all right we're done
+we're done here for pass this test ok so
+then this ware says ok I'll send it
+through my gauntlet well is 4 less than
+4 well no 4 is not less than 4 that's
+false actually so then this we're here
+the 4 stops yeah I got through this
+first gauntlet but it got slapped in the
+second one it didn't pass this test
+alright so this this we're here cannot
+send the 4 on but select needs that for
+that needs something so the Ware has to
+turn back round says hey mister we're
+over here give
+again that that for you sent me was no
+good okay no good all right
+so I so right now I know it's going to
+work you know it's a little confusing
+but right now we're in this we're right
+here and that's gonna ask this where for
+another item so we jump back over and
+you didn't see it in the debugger but
+now now we're sitting in this we're
+right here
+and item item becomes 13 all right we
+pulled the 13 from the array so now this
+this where has 13 okay
+well 13 gets sent to the gauntlet is 13
+less than 10 null for 13 didn't even
+survive very long all right why Wow
+their team's not less than 10 all right
+so this where has to turn to its source
+and say give me one all right well the
+array yields up eight eight get sent to
+the gauntlet eight less than 10 all
+right I'll draw eight here eight came
+down the pipeline and we have eight
+right here is eight less than 10 well
+yes it is okay good so it yields it up
+alright so then so here's eight alright
+it gets sent it eight was sent from this
+first we're over to the second where is
+8 is 4 less than 8 here we go for less
+than 8 yeah that's true 8 survived that
+gauntlet very good yield it alright
+finally this select over here this
+select over here gets a number right he
+gets 8 so I is 8 here ok so the Select
+watch we're gonna jump to select and we
+yield this we come back over to the
+Select all right here's our 8 we're
+gonna run the transform on the ain't
+what's the transform the transform is
+multiply it by 3 alright multiply it by
+three so what's 8 times 3 eight times
+three I believe last time I checked it
+is 24 okay so we have 24 now we're in
+this where all right select transform
+the 8 into a 24 who let's see what I
+like recording my lectures this is this
+is kind of exhausting hopefully you're
+still with me
+not I hope you're cueing the video back
+and forth but okay so now this word is
+gonna check if it's even alright so
+here's the gauntlet for this where 24
+mod 2 is that equal to 0 yeah it is even
+so this where yields it up
+alright so we're down to 24 in this
+where it's gonna send that 24 up to this
+select over here if I can get the pencil
+tool here's 24 and this select converts
+that 24 into a string and the pins
+Jamie onto the end of it 24 plus jamie
+is 24 Jamie in fact let me pull up the
+output window here notice we have the
+Select where select you can see the
+chain going on in here but finally when
+I hit f11 weald that up and we're back
+in maine who finally finally right here
+this is us 24 j a mi e gets sent to us
+here in maine radar current is 24 jamie
+well I don't work out a lot of work out
+there we go out 24 Jamie
+well now us in Maine say we need a new
+item if the whole thing continues on and
+we're gonna go all the way down and
+one's gonna get sent through the test
+one is less than 10 but ones not greater
+than 4 so one will fail here right here
+9 is less than 10 9 is greater than 4 so
+9 times 3 will be 27 so then we'll end
+up with a 27 here 27 is not even so then
+it actually 27 gets nuked right there in
+the process okay let me erase this okay
+27 is not even got pretty close but no
+cigar and then you notice here there's
+no more numbers so so then where this
+will return false here return false
+return false return false return false
+and then we will end up with nothing and
+main and then main execute so I kinda
+rushed through and jumped over those
+last three numbers the last few numbers
+just to kind of keep this video somewhat
+reasonably length but you could and I
+encourage you with all the code examples
+I do code these out step through them
+tries to really understand it it's the
+one thing for me to understand
+and explain it to you that really
+doesn't do you any good what really does
+you get is to take what I'm doing type
+it up and then toy with it
+twist it try doing different things with
+it that kind of thing so so I'm gonna go
+ahead and do that but hopefully I
+understand that we're building this
+machine here a very interesting machine
+very long machine very contrived machine
+but it's still a machine it's just a
+assembly line of iterators that take
+each item one by one and operate on them
+accordingly</value>
+  </data>
 </root>
