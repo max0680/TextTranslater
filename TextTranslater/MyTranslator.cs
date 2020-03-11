@@ -22,17 +22,13 @@ namespace TextTranslater
                 diction = new Translator(yandex_Key);
          }
 
-        public String Translateword (string word)
+      public String Translateword (string word)
         {
-            string value = word;
-            Translation translation = diction.Translate(word, new LangPair(Lang.En, Lang.Ru), null, false);
-            value = translation.Text;
-
-                   //    Translate("Семь раз отмерь, один раз отрежь",
-                   //new LangPair(Lang.None, Lang.En), null, true);
-
-            return value;
-
+            
+              
+          var  translation = diction.Translate(word, new LangPair(Lang.En, Lang.Ru), null, false).Text;
+          return translation;
+             
         }
 
        

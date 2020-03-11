@@ -34,7 +34,7 @@ namespace TextTranslater
             
             label3.Text = AllwordList.Count().ToString();       //количество вех строк
             label4.Text = wordlist2.Count().ToString();            // количество выдранных слов  
-            label6.Text = wordlist2.Select( x=>+ x.Key.Length ).ToString();
+            label6.Text = wordlist2.Sum(x=>x.Key.Length+x.Key.Length).ToString();
 
 
             MyTranslator tr = new MyTranslator();
@@ -48,8 +48,6 @@ namespace TextTranslater
                 item.SubItems.Add(group.Count().ToString());
                 if (isCheckTranslate)
                 item.SubItems.Add(tr.Translateword(group.Key));
-                
-                
                 listView1.Items.Add(item );
             }
 
